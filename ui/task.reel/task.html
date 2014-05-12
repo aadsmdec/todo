@@ -10,6 +10,13 @@
                 "element": {"#": "owner"}
             }
         },
+        "radio": {
+            "prototype": "digit/ui/radio-button.reel",
+            "properties": {
+                "element": {"#": "radio"},
+                "checked": true
+            }
+        },
         "textField": {
             "prototype": "digit/ui/text-field.reel",
             "properties": {
@@ -22,6 +29,7 @@
 </head>
 <body>
     <div data-montage-id="owner" class="Task">
+        <input type="radio" data-montage-id="radio">
         <input data-montage-id="textField" type="text">
     </div>
 </body>
