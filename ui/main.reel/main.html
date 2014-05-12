@@ -13,12 +13,50 @@
                 "element": {"#": "main"}
             }
         },
+        "actionEventListener": {
+            "prototype": "montage/core/event/action-event-listener",
+            "properties": {
+                "action": "addContent",
+                "handler": {"@": "rangeController"}
+            },
+            "_dev": {
+                "isHidden": true
+            }
+        },
         "button": {
             "prototype": "digit/ui/button.reel",
             "properties": {
                 "element": {"#": "button"},
                 "enabled": true,
                 "label": "New Task"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "useCapture": false,
+                    "listener": {"@": "actionEventListener"}
+                }
+            ]
+        },
+        "rangeController": {
+            "prototype": "montage/core/range-controller"
+        },
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"},
+                "content": [
+                    1,
+                    2,
+                    3
+                ],
+                "contentController": {"@": "rangeController"}
+            }
+        },
+        "task": {
+            "prototype": "ui/task.reel",
+            "properties": {
+                "element": {"#": "task"}
             }
         },
         "text": {
@@ -35,6 +73,12 @@
     <div data-montage-id="main" data-montage-skin="light" class="Main">
         <p data-montage-id="text"></p>
         <button data-montage-id="button"></button>
+        <ul data-montage-id="repetition">
+            <li>
+                Item
+                <div data-montage-id="task"></div>
+            </li>
+        </ul>
     </div>
 </body>
 </html>
